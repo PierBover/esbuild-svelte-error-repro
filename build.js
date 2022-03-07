@@ -1,11 +1,13 @@
 const esbuild = require('esbuild');
 const sveltePlugin = require('esbuild-svelte');
+const {globPlugin} = require('esbuild-plugin-glob');
 
 esbuild.build({
 	entryPoints: ['index.js'],
 	bundle: true,
 	outdir: 'dist',
 	plugins: [
+		globPlugin(),
 		sveltePlugin({
 			compilerOptions: {
 				css: false,
